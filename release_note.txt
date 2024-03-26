@@ -1,0 +1,28 @@
+SMA6201 audio issue/enhancement     
+
+Rel  Issue Type  Issue Description
+R000 N/A         The new chip SMA6201A change point is reflected
+R001 Enhancement Reflect an update to SMA6101 REV019
+R002 Enhancement 1.Modify the register and register amixer controls compared to the existing SMA6101
+                 - Clean up the kcontrol mixer name by considering the prefix
+                 2.Reflects Rx / Tx (ADC, DAC) operating scenarios according to I2S / TDM format
+                 3.Implemented to support gpio_reset setting and bitclock-inversion
+                 4.SW workaround code removal and optimization according to revision in existing SMA6101
+R003 Enhancement 1.Change to the snd_soc_component struct to build and run on Linux kernel version 4.19
+                 2.Disable Battery Overvoltage, Disable Return Current Control, Disable NMOS Freewheeling at RCC
+                 3.Deletes the code reflected to operate SRC on regardless of user setting during SCK + PLL Mode operation
+                 4.The code is reflected so that it is possible to set Mono mix even when setting SRC bypass
+                 5.Refer to SMA6201_MVT2_Application_Tune_20190702_r002.dat file and apply the detailed tuning value
+R004 Enhancement 1.Set SRC Bypass as default
+                 2.Delete the LN Voice and ULN Voice modes
+                 3.Refer to SMA6201_Voice(Music)_tune_from_default_0829_r000.dat file and apply the detailed tuning value
+R005 Enhancement 1.When setting the internal PLL clock, if the designated input frequency is not found in the table,
+                   change the code to set the error output and the default value
+                 2.Refer to SMA6201_MVT3_Oppo_Music_Setting_20190928_r001.dat file and apply the detailed tuning value
+                 3.Refer to SMA6201_MVT3_Oppo_Voice_Set_DGC_off_20190927_r000.dat file and apply the detailed tuning value
+R006 Enhancement 1.Refer to RCV_DGC_Off_Gain_3_20191015.dat file and apply the detailed tuning value
+                 2.Refer to SPK_Music_PiezoTune2_4k_20191015.dat file and apply the detailed tuning value
+R007 Enhancement 1.Refer to SMA6201_OPPO_RCV_20191025_Gain2_r000.dat file and apply the detailed tuning value
+                 2.Refer to SMA6201_MVT3_OPPO_Music_LEFT(cover)20191024_r000.dat file and apply the detailed tuning value
+                 3.Refer to SMA6201_MVT3_OPPO_Music_RIGHT(cover)20191024_r000.dat file and apply the detailed tuning value
+R008 Defect      1.Apply a defense code to resolve issues that do not change from low IRQ pin when AMP is powered off
