@@ -1,7 +1,7 @@
 /*
  * sma6201.h -- sma6201 ALSA SoC Audio driver
  *
- * r008, 2019.11.28
+ * r009, 2024.09.11
  *
  * Copyright 2023 Iron Device Corporation
  *

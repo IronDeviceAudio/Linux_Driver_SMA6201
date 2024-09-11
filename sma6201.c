@@ -1,6 +1,6 @@
 /* sma6201.c -- sma6201 ALSA SoC Audio driver
  *
- * r008, 2019.11.28	- initial version  sma6201
+ * r009, 2024.09.11	- initial version  sma6201
  *
  * Copyright 2023 Iron Device Corporation
  *
@@ -3596,9 +3596,9 @@ static int voice_music_class_h_mode_put(struct snd_kcontrol *kcontrol,
 			SMA6201_92_FDPEC_CTRL2,
 				EN_DGC_MASK, DGC_ENABLE);
 	} else {
-		/* HPF Frequency - 201 Hz */
+		/* HPF Frequency - 97 Hz */
 		regmap_write(sma6201->regmap,
-			SMA6201_15_BASS_SPK1, 0x06);
+			SMA6201_15_BASS_SPK1, 0x03);
 		regmap_write(sma6201->regmap,
 			SMA6201_16_BASS_SPK2, 0x05);
 		regmap_write(sma6201->regmap,
@@ -3606,7 +3606,7 @@ static int voice_music_class_h_mode_put(struct snd_kcontrol *kcontrol,
 		regmap_write(sma6201->regmap,
 			SMA6201_18_BASS_SPK4, 0x0E);
 		regmap_write(sma6201->regmap,
-			SMA6201_19_BASS_SPK5, 0x61);
+			SMA6201_19_BASS_SPK5, 0x21);
 		regmap_write(sma6201->regmap,
 			SMA6201_1A_BASS_SPK6, 0x0B);
 		regmap_write(sma6201->regmap,
@@ -3688,9 +3688,9 @@ static int voice_music_class_h_mode_put(struct snd_kcontrol *kcontrol,
 			SMA6201_92_FDPEC_CTRL2,
 				EN_DGC_MASK, DGC_ENABLE);
 	} else {
-		/* HPF Frequency - 201 Hz */
+		/* HPF Frequency - 97 Hz */
 		regmap_write(sma6201->regmap,
-			SMA6201_15_BASS_SPK1, 0x06);
+			SMA6201_15_BASS_SPK1, 0x03);
 		regmap_write(sma6201->regmap,
 			SMA6201_16_BASS_SPK2, 0x05);
 		regmap_write(sma6201->regmap,
@@ -3698,7 +3698,7 @@ static int voice_music_class_h_mode_put(struct snd_kcontrol *kcontrol,
 		regmap_write(sma6201->regmap,
 			SMA6201_18_BASS_SPK4, 0x0E);
 		regmap_write(sma6201->regmap,
-			SMA6201_19_BASS_SPK5, 0x61);
+			SMA6201_19_BASS_SPK5, 0x21);
 		regmap_write(sma6201->regmap,
 			SMA6201_1A_BASS_SPK6, 0x0B);
 		regmap_write(sma6201->regmap,
@@ -5532,12 +5532,12 @@ static int sma6201_reset(struct snd_soc_component *component)
 		regmap_write(sma6201->regmap, SMA6201_14_MODULATOR, 0x0D);
 	}
 
-	/* HPF Frequency - 201 Hz */
-	regmap_write(sma6201->regmap, SMA6201_15_BASS_SPK1,	0x06);
+	/* HPF Frequency - 97 Hz */
+	regmap_write(sma6201->regmap, SMA6201_15_BASS_SPK1,	0x03);
 	regmap_write(sma6201->regmap, SMA6201_16_BASS_SPK2,	0x05);
 	regmap_write(sma6201->regmap, SMA6201_17_BASS_SPK3,	0x05);
 	regmap_write(sma6201->regmap, SMA6201_18_BASS_SPK4,	0x0E);
-	regmap_write(sma6201->regmap, SMA6201_19_BASS_SPK5,	0x61);
+	regmap_write(sma6201->regmap, SMA6201_19_BASS_SPK5,	0x21);
 	regmap_write(sma6201->regmap, SMA6201_1A_BASS_SPK6,	0x0B);
 	regmap_write(sma6201->regmap, SMA6201_1B_BASS_SPK7,	0x06);
 	regmap_write(sma6201->regmap, SMA6201_21_DGC,		0x96);
@@ -6359,7 +6359,7 @@ static int sma6201_i2c_probe(struct i2c_client *client,
 	u32 value, value_clk;
 	unsigned int device_info;
 
-	dev_info(&client->dev, "%s is here. Driver version REV008\n", __func__);
+	dev_info(&client->dev, "%s is here. Driver version REV009\n", __func__);
 
 	sma6201 = devm_kzalloc(&client->dev, sizeof(struct sma6201_priv),
 							GFP_KERNEL);
